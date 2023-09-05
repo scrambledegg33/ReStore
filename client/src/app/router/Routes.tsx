@@ -4,11 +4,11 @@ import HomePage from "../../features/home/HomePage";
 import Catalog from "../../features/catalog/catalog";
 import ProductDetails from "../../features/catalog/ProductDetails";
 import AboutPage from "../../features/about/AboutPage";
-import { ContactPage } from "@mui/icons-material";
 import ServerError from "../errors/serverError";
 import NotFound from "../errors/NotFound";
 import BasketPage from "../../features/basket/BasketPage";
 import CheckoutPage from "../../features/checkout/CheckoutPage";
+import ContactPage from "../../features/contact/ContactPage";
 
 export const router = createBrowserRouter([
     {

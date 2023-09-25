@@ -1,5 +1,6 @@
 using API.Data;
 using API.DTOs;
+using API.Entities;
 using API.Entities.OrderAggregate;
 using API.Extensions;
 using Microsoft.AspNetCore.Authorization;
@@ -83,8 +84,11 @@ namespace API.Controllers
 
             if(orderDto.SaveAddress)
             {
-                var user = await _context.Users.FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
-                user.Address = new Entities.UserAddress{
+                var user = await _context.Users
+                    .Include(a => a.Address)
+                    .FirstOrDefaultAsync(x => x.UserName == User.Identity.Name);
+
+                var address = new UserAddress{
                     FullName = orderDto.ShippingAddress.FullName,
                     Address1 = orderDto.ShippingAddress.Address1,
                     Address2 = orderDto.ShippingAddress.Address2,
@@ -93,7 +97,7 @@ namespace API.Controllers
                     Zip = orderDto.ShippingAddress.Zip,
                     Country = orderDto.ShippingAddress.Country,
                 };
-                _context.Update(user);
+                user.Address = address;
             }
 
             var result = await _context.SaveChangesAsync() > 0;

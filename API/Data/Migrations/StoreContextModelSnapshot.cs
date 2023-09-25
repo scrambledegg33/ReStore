@@ -67,11 +67,11 @@ namespace API.Data.Migrations
                     b.Property<long>("DeliveryFee")
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("OrderStatus")
                         .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("OrderTime")
-                        .HasColumnType("TEXT");
 
                     b.Property<long>("Subtotal")
                         .HasColumnType("INTEGER");

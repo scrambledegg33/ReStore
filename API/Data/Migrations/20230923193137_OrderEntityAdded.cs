@@ -81,7 +81,7 @@ namespace API.Data.Migrations
                     ShippingAddress_State = table.Column<string>(type: "TEXT", nullable: true),
                     ShippingAddress_Zip = table.Column<string>(type: "TEXT", nullable: true),
                     ShippingAddress_Country = table.Column<string>(type: "TEXT", nullable: true),
-                    OrderTime = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Subtotal = table.Column<long>(type: "INTEGER", nullable: false),
                     DeliveryFee = table.Column<long>(type: "INTEGER", nullable: false),
                     OrderStatus = table.Column<int>(type: "INTEGER", nullable: false)
